@@ -96,8 +96,10 @@ setup_agent:
 install_agent_claude:
 	@echo "Installing Claude Coding Agent..."
 	claude --version
+	mkdir -p .agents
 	mkdir -p .claude
 	mkdir -p .claude-plugin
+	touch .claude/CLAUDE.md
 	touch $(COMPONENT_DIR)/settings.local.json
 
 install_marketplace_claude:
