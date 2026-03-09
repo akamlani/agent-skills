@@ -19,12 +19,15 @@ Use `AskUserQuestions` tool to clarify any information needed from the User.
 
 ### Guidelines
 Reference `@stores/contextlib/_rules/styles/styling-python.md` for general python style conventions
-Furthermore, follow these specific guidelines for docstring generation:
+- Preserve the original indentation. Match the surrounding code style (spaces vs tabs).
+- Avoid trying to be verbose or include unnecessary information. Focus on clarity and usefulness.
 
+Furthermore, follow these specific guidelines for docstring generation:
 - **First line**: one sentence, imperative mood, ends with period.
 - **Body paragraph** (if needed): expand on behaviour, edge cases, side effects.
 - **Args**: describe defaults, purpose, constraints, not just type.
 - **Returns**: describe the structure and meaning of the return value, not just its type.
 - **Raises**: include only documented/expected exceptions, not every possible Python error.
-- **Example**: always include at least one example of call usage and potential workflow.  Ensure examples represent realistic representative cases as well as relative to aligned user preferences.
-- Preserve the original indentation. Match the surrounding code style (spaces vs tabs).
+- **Example**: include examples of call usage and potential workflow where beneficial for clarity.
+  - Examples should be included when clarity is required or to demonstrate workflows, but not for simple cases.
+  - Ensure examples represent realistic representative cases as well as relative to aligned user preferences.
