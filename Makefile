@@ -80,11 +80,18 @@ link_vaultspace:
 #################### Coding Agents
 .PHONY: install_agent setup_agent setup_agent_claude install_agent_claude
 .PHONY: install_marketplace_claude install_plugin_claude
+.PHONY: link_agents verify_agents
 
 install_agent:
 	@echo "Installing Coding Agent..."
 	$(MAKE) setup_agent
+# directory structure
 	$(MAKE) install_agent_claude
+	$(MAKE) install_agent_gemini
+# create links
+	$(MAKE) link_agents
+	$(MAKE) verify_agents
+# external marketplace and plugins
 	$(MAKE) install_marketplace_claude
 	$(MAKE) install_plugin_claude
 
@@ -100,7 +107,26 @@ install_agent_claude:
 	mkdir -p .claude
 	mkdir -p .claude-plugin
 	touch .claude/CLAUDE.md
+	touch $(COMPONENT_DIR)/settings.json
 	touch $(COMPONENT_DIR)/settings.local.json
+
+install_agent_gemini:
+	@echo "Installing Gemini Coding Agent..."
+	mkdir -p .gemini
+
+# links to agents, skills, commands, rules for project development
+link_agents:
+	@echo "Linking Agents..."
+	test -d "$(COMPONENT_DIR)" || (echo "ERROR: Missing $(COMPONENT_DIR)" && exit 1)
+	test -x "./$(COMPONENT_DIR)/hooks/link_agents.sh" || (echo "ERROR: Missing executable ./$(COMPONENT_DIR)/hooks/link_agents.sh" && exit 1)
+	./$(COMPONENT_DIR)/hooks/link_agents.sh "$(COMPONENT_DIR)" ".claude"
+
+verify_agents:
+	@echo "Verifying Agents..."
+	test -d "$(COMPONENT_DIR)" || (echo "ERROR: Missing $(COMPONENT_DIR)" && exit 1)
+	test -x "./$(COMPONENT_DIR)/hooks/verify_agents.sh" || (echo "ERROR: Missing executable ./$(COMPONENT_DIR)/hooks/verify_agents.sh" && exit 1)
+	./$(COMPONENT_DIR)/hooks/verify_agents.sh "$(COMPONENT_DIR)" ".claude"
+
 
 install_marketplace_claude:
 	@echo "Installing Marketplace..."
