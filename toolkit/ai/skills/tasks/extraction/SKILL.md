@@ -8,7 +8,7 @@ Analyzes and extracts key information from various data sources
 
 ## Workflow
 1. Use the `AskUserQuestions` tool to receive input data and clarity what type of data it is
-2. Use @resources/extraction.md for performing extractive summarization in a structured response from the provided context content.
+2. Use @references/extraction.md for performing extractive summarization in a structured response from the provided context content.
 3. Dump the content in a clear human-readable format, such as in partially noted dataframe format
 
 
