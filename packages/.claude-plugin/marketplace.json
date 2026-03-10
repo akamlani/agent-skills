@@ -1,0 +1,31 @@
+{
+  "name": "velaristudios-local",
+  "metadata": {
+    "version":     "0.0.1",
+    "description": "Structured AI workflows for better productivity and documentation"
+  },
+  "owner": {
+    "name":  "Ari Kamlani",
+    "email": "akamlani@gmail.com"
+  },
+  "plugins": [
+    {
+      "name":        "focus",
+      "description": "Core AI Focus Tasks: extractive summarization",
+      "source":      "./ai/focus",
+      "category":    "productivity"
+    },
+    {
+      "name":        "docgen",
+      "description": "Documentation generation and management tools.",
+      "source":      "./docgen",
+      "category":    "documentation"
+    },
+    {
+      "name":        "research",
+      "description": "Research tools, utilities, trending, and future insights.",
+      "source":      "./research",
+      "category":    "research"
+    }
+  ]
+}

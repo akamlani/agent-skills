@@ -25,7 +25,6 @@ help:
 	@echo "download  : downloads dependencies distribution"
 	@echo "system    : Installs System Libraries per $(PLATFORM_TYPE)"
 	@echo "install   : create environment based on project $(PACKAGE_INSTALL_NAME)"
-	@echo "verify_agents: compare $(COMPONENT_DIR) vs .claude trees"
 	@echo "format    : formatting and linting of project $(PACKAGE_NAME)"
 	@echo "clean     : cleans all files or project $(PACKAGE_INSTALL_NAME)"
 	@echo "test      : execute unit testing"
@@ -54,7 +53,7 @@ install:
 install_setup:
 	@echo "Installing Setup for $(PACKAGE_NAME)..."
 	mkdir -p .velari
-	mkdir -p _build docs
+	mkdir -p _build docs config
 	touch .env.template
 
 install_dotfiles:
@@ -80,7 +79,7 @@ link_vaultspace:
 #################### Coding Agents
 .PHONY: install_agent setup_agent setup_agent_claude install_agent_claude
 .PHONY: install_marketplace_claude install_plugin_claude
-.PHONY: link_agents verify_agents
+.PHONY: install_plugin_local
 
 install_agent:
 	@echo "Installing Coding Agent..."
@@ -89,44 +88,35 @@ install_agent:
 	$(MAKE) install_agent_claude
 	$(MAKE) install_agent_gemini
 # create links
-	$(MAKE) link_agents
-	$(MAKE) verify_agents
+#	$(MAKE) link_agents
+#	$(MAKE) verify_agents
 # external marketplace and plugins
 	$(MAKE) install_marketplace_claude
 	$(MAKE) install_plugin_claude
 
 setup_agent:
-	@echo "Installing Coding Agents..."
-	mkdir -p $(COMPONENT_DIR)/{projects,agents,commands,skills,rules,hooks,history}
+	@echo "Setting up Coding Agents..."
 	touch AGENTS.md CLAUDE.md GEMINI.md
+#	touch USER.md
+# 	touch MEMORY.md
+# 	touch BACKLOG.md GOALS.md
+	mkdir -p .agents
 
 install_agent_claude:
 	@echo "Installing Claude Coding Agent..."
 	claude --version
-	mkdir -p .agents
+# user level
 	mkdir -p .claude
 	mkdir -p .claude-plugin
 	touch .claude/CLAUDE.md
-	touch $(COMPONENT_DIR)/settings.json
-	touch $(COMPONENT_DIR)/settings.local.json
+# plugin level
+	mkdir -p $(PACKAGE_DIR)/{agents,commands,skills,rules,hooks}
+	touch $(PACKAGE_DIR)/settings.json
+	touch $(PACKAGE_DIR)/settings.local.json
 
 install_agent_gemini:
 	@echo "Installing Gemini Coding Agent..."
 	mkdir -p .gemini
-
-# links to agents, skills, commands, rules for project development
-link_agents:
-	@echo "Linking Agents..."
-	test -d "$(COMPONENT_DIR)" || (echo "ERROR: Missing $(COMPONENT_DIR)" && exit 1)
-	test -x "./$(COMPONENT_DIR)/hooks/link_agents.sh" || (echo "ERROR: Missing executable ./$(COMPONENT_DIR)/hooks/link_agents.sh" && exit 1)
-	./$(COMPONENT_DIR)/hooks/link_agents.sh "$(COMPONENT_DIR)" ".claude"
-
-verify_agents:
-	@echo "Verifying Agents..."
-	test -d "$(COMPONENT_DIR)" || (echo "ERROR: Missing $(COMPONENT_DIR)" && exit 1)
-	test -x "./$(COMPONENT_DIR)/hooks/verify_agents.sh" || (echo "ERROR: Missing executable ./$(COMPONENT_DIR)/hooks/verify_agents.sh" && exit 1)
-	./$(COMPONENT_DIR)/hooks/verify_agents.sh "$(COMPONENT_DIR)" ".claude"
-
 
 install_marketplace_claude:
 	@echo "Installing Marketplace..."
@@ -138,17 +128,32 @@ install_plugin_claude:
 	@claude plugin install skill-creator@claude-plugins-official   --scope project
 	@claude plugin install playground@claude-plugins-official      --scope project
 	@claude plugin install frontend-design@claude-plugins-official --scope project
+# development languages
+	@claude plugin install pyright-lsp@claude-plugins-official 	   --scope project
+	@claude plugin install typescript-lsp@claude-plugins-official  --scope project
+# development
 	@claude plugin install context7@claude-plugins-official 	   --scope project
 	@claude plugin install superpowers@claude-plugins-official 	   --scope project
 	@claude plugin install code-simplifier@claude-plugins-official --scope project
 	@claude plugin install code-review@claude-plugins-official 	   --scope project
 	@claude plugin install github@claude-plugins-official 	   	   --scope project
 	@claude plugin install commit-commands@claude-plugins-official --scope project
+# connectors
 	@claude plugin install slack@claude-plugins-official 	   	   --scope project
 	@claude plugin install playwright@claude-plugins-official 	   --scope project
+# general
 	@claude plugin install feature-dev@claude-plugins-official 	   --scope project
 	@claude plugin install document-skills@anthropic-agent-skills  --scope project
 
+install_plugin_local:
+# /plugin marketplace remove velaristudios-local
+	@echo "Installing Local Claude Plugins..."
+	@claude --plugin-dir ./packages/ai/focus --plugin-dir ./packages/docgen --plugin-dir ./packages/research
+	@claude plugin validate ./packages
+	@claude plugin marketplace add ./packages
+	@claude plugin install focus@velaristudios-local    --scope project
+	@claude plugin install docgen@velaristudios-local   --scope project
+	@claude plugin install research@velaristudios-local --scope project
 
 
 #################### General

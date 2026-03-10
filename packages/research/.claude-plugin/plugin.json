@@ -1,0 +1,18 @@
+{
+    "name": "research",
+    "version": "0.0.1",
+    "description": "Research tools, utilities, trending, and future insights.",
+    "author": {
+        "name": "Ari Kamlani",
+        "email": "akamlani@gmail.com",
+        "url": "https://www.arikamlani.com"
+    },
+    "keywords": [
+        "productivity",
+        "research",
+        "futurism"
+    ],
+    "homepage": "https://www.arikamlani.com",
+    "repository": "https://github.com/akamlani/agent-skills",
+    "license": "Apache-2.0"
+}
