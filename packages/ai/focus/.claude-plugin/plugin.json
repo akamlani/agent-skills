@@ -1,0 +1,22 @@
+{
+    "name": "focus",
+    "version": "0.0.1",
+    "description": "AI specific tasks such as extraction, summarization, QnA, etc...",
+    "author": {
+        "name": "Ari Kamlani",
+        "email": "akamlani@gmail.com",
+        "url": "https://www.arikamlani.com"
+    },
+    "keywords": [
+        "ai",
+        "productivity",
+        "focus",
+        "tasks",
+        "extraction",
+        "summarization",
+        "qna"
+    ],
+    "homepage": "https://www.arikamlani.com",
+    "repository": "https://github.com/akamlani/agent-skills",
+    "license": "Apache-2.0"
+}

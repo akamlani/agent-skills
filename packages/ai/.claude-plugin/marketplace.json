@@ -1,0 +1,17 @@
+{
+  "name": "velaristudios-local",
+  "version": "0.0.1",
+  "description": "Structured AI workflows for better productivity",
+  "owner": {
+    "name":  "Ari Kamlani",
+    "email": "akamlani@gmail.com",
+    "url":   "https://www.arikamlani.com"
+  },
+  "plugins": [
+    {
+      "name":        "tasks",
+      "description": "Core AI Tasks: extractive summarization",
+      "source":      "./focus"
+    }
+  ]
+}

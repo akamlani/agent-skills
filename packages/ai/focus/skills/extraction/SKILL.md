@@ -1,6 +1,6 @@
 ---
 name: extraction
-description: "Analyze and extract structured information from various data sources, such as transcripts, documents, codebases, or web content. This skill is designed to help users gain insights and actionable information from unstructured data."
+description: Analyze and extract structured information from various data sources, such as transcripts, documents, codebases, or web content. This skill is designed to help users gain insights and actionable information from unstructured data.
 ---
 
 # Analysis
