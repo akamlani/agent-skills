@@ -11,7 +11,7 @@
   "plugins": [
     {
       "name":        "focus",
-      "description": "Core AI Focus Tasks: extractive summarization",
+      "description": "Core AI Focus Tasks: extractive summarization, abstractive summarization, synthesis, etc...",
       "source":      "./ai/focus",
       "category":    "productivity"
     },

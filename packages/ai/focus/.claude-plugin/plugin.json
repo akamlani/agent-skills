@@ -14,6 +14,7 @@
         "tasks",
         "extraction",
         "summarization",
+        "synthesis",
         "qna"
     ],
     "homepage": "https://www.arikamlani.com",
