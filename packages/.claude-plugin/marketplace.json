@@ -26,6 +26,12 @@
       "description": "Research tools, utilities, trending, and future insights.",
       "source":      "./research",
       "category":    "research"
+    },
+    {
+      "name":        "finance",
+      "description": "Financial tools, invoice generation, budgeting, forecasting, etc...",
+      "source":      "./finance",
+      "category":    "finance"
     }
   ]
 }

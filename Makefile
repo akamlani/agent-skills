@@ -148,12 +148,13 @@ install_plugin_claude:
 install_plugin_local:
 # /plugin marketplace remove velaristudios-local
 	@echo "Installing Local Claude Plugins..."
-	@claude --plugin-dir ./packages/ai/focus --plugin-dir ./packages/docgen --plugin-dir ./packages/research
+	@claude --plugin-dir ./packages/ai/focus --plugin-dir ./packages/docgen --plugin-dir ./packages/research --plugin-dir ./packages/finance
 	@claude plugin validate ./packages
 	@claude plugin marketplace add ./packages
 	@claude plugin install focus@velaristudios-local    --scope project
 	@claude plugin install docgen@velaristudios-local   --scope project
 	@claude plugin install research@velaristudios-local --scope project
+	@claude plugin install finance@velaristudios-local  --scope project
 
 
 #################### General
