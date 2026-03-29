@@ -75,6 +75,7 @@ link_vaultspace:
 	ln -sfn $(VAULTSPACE_ROOT)/contextlib 	stores/contextlib
 	ln -sfn $(VAULTSPACE_ROOT)/artifactlib 	stores/artifactlib
 	ln -sfn $(VAULTSPACE_ROOT)/promptlib 	stores/promptlib
+	ln -sfn $(VAULTSPACE_ROOT)/planlib 		stores/planlib
 
 #################### Coding Agents
 .PHONY: install_agent setup_agent setup_agent_claude install_agent_claude
@@ -104,7 +105,9 @@ setup_agent:
 
 install_agent_claude:
 	@echo "Installing Claude Coding Agent..."
+	curl -fsSL https://claude.ai/install.sh | bash
 	claude --version
+# echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc && source ~/.zshrc
 # user level
 	mkdir -p .claude
 	mkdir -p .claude-plugin
@@ -125,25 +128,32 @@ install_marketplace_claude:
 
 install_plugin_claude:
 	@echo "Installing Claude Plugins..."
-	@claude plugin install skill-creator@claude-plugins-official   --scope project
-	@claude plugin install playground@claude-plugins-official      --scope project
-	@claude plugin install frontend-design@claude-plugins-official --scope project
-# development languages
-	@claude plugin install pyright-lsp@claude-plugins-official 	   --scope project
-	@claude plugin install typescript-lsp@claude-plugins-official  --scope project
-# development
-	@claude plugin install context7@claude-plugins-official 	   --scope project
-	@claude plugin install superpowers@claude-plugins-official 	   --scope project
-	@claude plugin install code-simplifier@claude-plugins-official --scope project
-	@claude plugin install code-review@claude-plugins-official 	   --scope project
-	@claude plugin install github@claude-plugins-official 	   	   --scope project
-	@claude plugin install commit-commands@claude-plugins-official --scope project
-# connectors
-	@claude plugin install slack@claude-plugins-official 	   	   --scope project
-	@claude plugin install playwright@claude-plugins-official 	   --scope project
+	@claude plugin install plugin-dev@claude-plugins-official   		--scope project
+	@claude plugin install skill-creator@claude-plugins-official   		--scope project
+	@claude plugin install playground@claude-plugins-official      		--scope project
+	@claude plugin install frontend-design@claude-plugins-official 		--scope project
+	@claude plugin install chrome-devtools-mcp@claude-plugins-official 	--scope project
 # general
-	@claude plugin install feature-dev@claude-plugins-official 	   --scope project
-	@claude plugin install document-skills@anthropic-agent-skills  --scope project
+	@claude plugin install feature-dev@claude-plugins-official 	   		--scope project
+# development languages
+	@claude plugin install pyright-lsp@claude-plugins-official 	   		--scope project
+	@claude plugin install typescript-lsp@claude-plugins-official  		--scope project
+# development
+	@claude plugin install claude-code-setup@claude-plugins-official 	--scope project
+	@claude plugin install context7@claude-plugins-official 	   		--scope project
+	@claude plugin install superpowers@claude-plugins-official 	   		--scope project
+	@claude plugin install code-simplifier@claude-plugins-official 		--scope project
+	@claude plugin install code-review@claude-plugins-official 	   		--scope project
+	@claude plugin install github@claude-plugins-official 	   	   		--scope project
+	@claude plugin install commit-commands@claude-plugins-official 		--scope project
+	@claude plugin install pr-review-toolkit@claude-plugins-official 	--scope project
+# data
+	@claude plugin install data-engineering@claude-plugins-official 	--scope project
+# connectors
+	@claude plugin install slack@claude-plugins-official 	   	   		--scope project
+	@claude plugin install playwright@claude-plugins-official 	   		--scope project
+# documentation
+	@claude plugin install document-skills@anthropic-agent-skills  		--scope project
 
 install_plugin_local:
 # /plugin marketplace remove velaristudios-local
@@ -155,7 +165,6 @@ install_plugin_local:
 	@claude plugin install docgen@velaristudios-local   --scope project
 	@claude plugin install research@velaristudios-local --scope project
 	@claude plugin install finance@velaristudios-local  --scope project
-
 
 #################### General
 .PHONY: clean

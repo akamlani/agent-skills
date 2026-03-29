@@ -35,3 +35,5 @@ The following notable People, Organizations, and Resources are influential in sh
 - Jen Brace (Ford)
 - Melanie Subin (Future Today Strategy Group)
 - Mike Walsh
+- [Thinking Machines and Mantic](https://thinkingmachines.ai/news/training-llms-to-predict-world-events/)
+- Mantic [https://www.mantic.com/](https://www.mantic.com/#research)

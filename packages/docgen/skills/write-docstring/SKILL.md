@@ -9,7 +9,7 @@ This skill adds docstrings to every public class, method, and function in a Pyth
 ## Workflow
 Use `AskUserQuestions` tool to clarify any information needed from the User.
 
-1. Identify Docstring Style Format: Use `Google` by default
+1. Identify Docstring Style Format: Use `google` by default
 2. Locate the Package based on `pyproject.toml` file
 3. Scan and Analyze Codebase for all public classes, methods, and functions
 4. Process each file iteratively, generating or updating docstrings per guidelines as needed
@@ -31,3 +31,7 @@ Furthermore, follow these specific guidelines for docstring generation:
 - **Example**: include examples of call usage and potential workflow where beneficial for clarity.
   - Examples should be included when clarity is required or to demonstrate workflows, but not for simple cases.
   - Ensure examples represent realistic representative cases as well as relative to aligned user preferences.
+
+### Validations
+- [ ] PEP 257 Compliance: Ensure all docstrings adhere to PEP 257 conventions for docstring for `google`
+- [ ] Completeness: All public classes, methods, and functions should have function signature docstrings
