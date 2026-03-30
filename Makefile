@@ -78,6 +78,9 @@ link_vaultspace:
 	ln -sfn $(VAULTSPACE_ROOT)/planlib 		stores/planlib
 
 #################### Coding Agents
+LOCAL_MARKETPLACE := velaristudios-local
+LOCAL_PLUGINS     := focus docgen research finance
+
 .PHONY: install_agent setup_agent setup_agent_claude install_agent_claude
 .PHONY: install_marketplace_claude install_plugin_claude
 .PHONY: install_plugin_local
@@ -98,9 +101,6 @@ install_agent:
 setup_agent:
 	@echo "Setting up Coding Agents..."
 	touch AGENTS.md CLAUDE.md GEMINI.md
-#	touch USER.md
-# 	touch MEMORY.md
-# 	touch BACKLOG.md GOALS.md
 	mkdir -p .agents
 
 install_agent_claude:
@@ -156,15 +156,13 @@ install_plugin_claude:
 	@claude plugin install document-skills@anthropic-agent-skills  		--scope project
 
 install_plugin_local:
-# /plugin marketplace remove velaristudios-local
+# To reset: claude plugin marketplace remove $(LOCAL_MARKETPLACE)
 	@echo "Installing Local Claude Plugins..."
-	@claude --plugin-dir ./packages/ai/focus --plugin-dir ./packages/docgen --plugin-dir ./packages/research --plugin-dir ./packages/finance
 	@claude plugin validate ./packages
 	@claude plugin marketplace add ./packages
-	@claude plugin install focus@velaristudios-local    --scope project
-	@claude plugin install docgen@velaristudios-local   --scope project
-	@claude plugin install research@velaristudios-local --scope project
-	@claude plugin install finance@velaristudios-local  --scope project
+	@for plugin in $(LOCAL_PLUGINS); do \
+		claude plugin install $$plugin@$(LOCAL_MARKETPLACE) --scope project; \
+	done
 
 #################### General
 .PHONY: clean
