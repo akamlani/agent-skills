@@ -30,6 +30,7 @@ help:
 	@echo "test      : execute unit testing"
 
 info:
+	@echo "Git Root:       $(GIT_ROOT)"
 	@echo "Package:        $(PACKAGE_INSTALL_NAME) - $(PACKAGE_NAME)"
 	@echo "Platform:       ${PLATFORM_TYPE}"
 	@echo "Architecture:   $$(uname -m)"
@@ -59,8 +60,9 @@ install_setup:
 install_dotfiles:
 	@echo "Installing Dotfiles from $(DOTFILES_REPO)..."
 	@if [ ! -d $(DOTFILES_DIR) ]; then \
-		git clone $(DOTFILES_REPO) $(DOTFILES_DIR) && $(MAKE) link_dotfiles; \
+		git clone $(DOTFILES_REPO) $(DOTFILES_DIR); \
 	fi
+	$(MAKE) link_dotfiles
 
 # links to dotfiles: e.g., .vscode, .github for project configuration and templates
 link_dotfiles:
@@ -78,8 +80,7 @@ link_vaultspace:
 	ln -sfn $(VAULTSPACE_ROOT)/planlib 		stores/planlib
 
 #################### Coding Agents
-LOCAL_MARKETPLACE := velaristudios-local
-LOCAL_PLUGINS     := focus docgen research finance
+PROJECT_DIR ?= $(GIT_ROOT)
 
 .PHONY: install_agent setup_agent setup_agent_claude install_agent_claude
 .PHONY: install_marketplace_claude install_plugin_claude
@@ -128,39 +129,19 @@ install_marketplace_claude:
 
 install_plugin_claude:
 	@echo "Installing Claude Plugins..."
-	@claude plugin install plugin-dev@claude-plugins-official   		--scope project
-	@claude plugin install skill-creator@claude-plugins-official   		--scope project
-	@claude plugin install playground@claude-plugins-official      		--scope project
-	@claude plugin install frontend-design@claude-plugins-official 		--scope project
-	@claude plugin install chrome-devtools-mcp@claude-plugins-official 	--scope project
-# general
-	@claude plugin install feature-dev@claude-plugins-official 	   		--scope project
-# development languages
-	@claude plugin install pyright-lsp@claude-plugins-official 	   		--scope project
-	@claude plugin install typescript-lsp@claude-plugins-official  		--scope project
-# development
-	@claude plugin install claude-code-setup@claude-plugins-official 	--scope project
-	@claude plugin install context7@claude-plugins-official 	   		--scope project
-	@claude plugin install superpowers@claude-plugins-official 	   		--scope project
-	@claude plugin install code-simplifier@claude-plugins-official 		--scope project
-	@claude plugin install code-review@claude-plugins-official 	   		--scope project
-	@claude plugin install github@claude-plugins-official 	   	   		--scope project
-	@claude plugin install commit-commands@claude-plugins-official 		--scope project
-	@claude plugin install pr-review-toolkit@claude-plugins-official 	--scope project
-# data
-	@claude plugin install data-engineering@claude-plugins-official 	--scope project
-# connectors
-	@claude plugin install slack@claude-plugins-official 	   	   		--scope project
-	@claude plugin install playwright@claude-plugins-official 	   		--scope project
-# documentation
-	@claude plugin install document-skills@anthropic-agent-skills  		--scope project
+	@cd $(PROJECT_DIR); \
+	for plugin in $(PLUGINS_OFFICIAL); do \
+		claude plugin install $$plugin@claude-plugins-official --scope project; \
+	done; \
+	claude plugin install document-skills@anthropic-agent-skills --scope project
 
 install_plugin_local:
 # To reset: claude plugin marketplace remove $(LOCAL_MARKETPLACE)
 	@echo "Installing Local Claude Plugins..."
 	@claude plugin validate ./packages
 	@claude plugin marketplace add ./packages
-	@for plugin in $(LOCAL_PLUGINS); do \
+	@cd $(PROJECT_DIR); \
+	for plugin in $(LOCAL_PLUGINS); do \
 		claude plugin install $$plugin@$(LOCAL_MARKETPLACE) --scope project; \
 	done
 
