@@ -16,6 +16,12 @@
       "category":    "productivity"
     },
     {
+      "name":        "design",
+      "description": "Design best practices, branding, UI/UX, and more.",
+      "source":      "./design",
+      "category":    "design"
+    },
+    {
       "name":        "docgen",
       "description": "Documentation generation and management tools.",
       "source":      "./docgen",
