@@ -38,6 +38,12 @@
       "description": "Financial tools, invoice generation, budgeting, forecasting, etc...",
       "source":      "./finance",
       "category":    "finance"
+    },
+    {
+      "name":        "product",
+      "description": "Strategic product management tools, roadmapping, prioritization, prompt generation utilities, etc...",
+      "source":      "./product",
+      "category":    "product"
     }
   ]
 }
