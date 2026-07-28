@@ -85,6 +85,7 @@ PROJECT_DIR ?= $(GIT_ROOT)
 .PHONY: install_agent setup_agent setup_agent_claude install_agent_claude
 .PHONY: install_marketplace_claude install_plugin_claude
 .PHONY: install_plugin_local
+.PHONY: install_mcp_servers
 
 install_agent:
 	@echo "Installing Coding Agent..."
