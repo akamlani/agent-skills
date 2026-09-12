@@ -4,9 +4,9 @@ Skills and configuration for AI coding agents used in AI-assisted development.
 
 ## Project Overview
 - **Package**: `agent-skills`
-- **Component Dir**: `toolkit/ai` — source of truth for agents, skills, commands, rules, hooks
+- **Component Dir**: `toolkit/ai` — currently just `hooks/` (agent/link automation); skills and commands ship as `packages/` plugins instead (see [Skills Inventory](#skills-inventory))
 - **Dotfiles**: cloned into `_build/dotfiles/` (separate repository); `.vscode` and `.github` are symlinked from there
-- **Stores**: `stores/{contextlib,artifactlib,promptlib}` are symlinked from an Obsidian vault (`~/Dropbox/dev-vault/workspace`)
+- **Stores**: `stores/{artifact-lib,context-lib}` are symlinked from an Obsidian vault (`~/Dropbox/dev-vault/workspace`)
 
 ## Setup
 ```shell
@@ -18,38 +18,31 @@ make clean           # remove build artifacts
 ```
 
 ## Key Structure
-| Path | Purpose |
-|------|---------|
-| `toolkit/ai/skills/` | Source skill definitions (`SKILL.md` per skill) |
-| `toolkit/ai/commands/` | Slash commands for AI agents |
-| `toolkit/ai/rules/` | Coding rules and guidelines |
-| `toolkit/ai/hooks/link_agents.sh` | Links skills/commands into `.claude/` |
-| `toolkit/ai/hooks/verify_agents.sh` | Verifies agent links are correct |
-| `toolkit/ai/settings.json` | Agent settings configuration |
-| `.claude/skills/` | Symlinked skills (auto-generated, do not edit directly) |
-| `stores/contextlib/` | Rules and style guides (obsidian vault) |
-| `config/runtime/runtime.env` | Environment variables and runtime config |
+See README.md's [Directory Structure](README.md#directory-structure) section for the full, current repo tree — not duplicated here.
 
 ## Skills Inventory
-| Category | Skill | Description |
-|----------|-------|-------------|
-| `data/connectors/` | `granola` | Data connector integration |
-| `docgen/` | `write-agent` | AI agent documentation generation |
-| `docgen/` | `write-docstring` | Docstring generation |
-| `evals/` | — | Evaluation frameworks |
-| `product/specs/` | `write-prd` | Product requirements document generation |
-| `research/` | `futurism` | Futures research and trend analysis |
-| `tasks/` | `extraction` | Task and information extraction |
+All skills ship as `packages/` plugins, not under `toolkit/ai/skills/` (which currently holds no skills — see [Key Structure](#key-structure)).
+
+| Package | Skill | Description |
+|---------|-------|-------------|
+| `ai/focus` | `extraction` | Extract structured information from transcripts, documents, codebases, or web content |
+| `ai/focus` | `summarize` | Summarize and synthesize content across formats and sources |
+| `ai/focus` | `synthesize` | Aggregate and cross-reference multiple sources — deltas, maturity, gaps, recommendations, code examples, and a unified composite flow diagram |
+| `design` | `brand-guidelines` | Apply personal brand guidelines to websites, decks, PDFs, and other artifacts |
+| `design` | `marp` | Author and render Markdown-based slide decks via MARP (marp-cli) to HTML/PDF/PPTX/PNG |
+| `dev/build` | `explain` | Explain a repository's architecture, structure, lifecycle phases, design patterns, and conventions in detail, with Mermaid diagrams, pseudocode, and code excerpts |
+| `dev/build` | `refactor` | Refactor code or documentation from various input sources; handles version upgrades, framework migrations, language ports, and design-pattern refactors |
+| `dev/docgen` | `write-agent` | Update/synchronize README.md, AGENTS.md, CLAUDE.md, GEMINI.md |
+| `dev/docgen` | `write-docstring` | Guided workflow for writing docstrings for functions, classes, and modules |
+| `finance` | `write-invoice` | Generate a client invoice (XLSX template → PDF) |
+| `research` | `futurism` | Explore future trends, drivers, and signals in emerging technologies |
 
 ## Commands
-| Command | Description |
-|---------|-------------|
-| `tasks/search` | Search across tasks and context |
-| `tasks/synthesize` | Synthesize information from tasks |
+| Package | Command | Description |
+|---------|---------|-------------|
+| `ai/focus` | `search` | Interactive search through codebase or documents |
+| `dev/docgen` | `write-index` | Generate a structured INDEX.md with a file tree and one-line descriptors |
+| `product` | `prompt-gen` | Generate a prompt from user criteria via meta-prompting |
 
 ## Development Best Practices
-- Styling guidelines: `stores/contextlib/_rules/styles/`
-- Makefile styling: `stores/contextlib/_rules/styles/styling-makefile.md`
-- Typecheck after a series of code changes
-- Run single tests rather than the full test suite
-- Edit skills in `toolkit/ai/skills/` — never directly in `.claude/` (symlinked, auto-overwritten)
+See README.md's [Development Best Practices](README.md#development-best-practices) section — not duplicated here.

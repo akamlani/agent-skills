@@ -35,22 +35,31 @@
 ## packages/ai/focus/skills/summarize/
 - `SKILL.md` — skill: summarize and synthesize content from text, URLs, or media
 
+## packages/ai/focus/skills/synthesize/
+- `SKILL.md` — skill: aggregate and cross-reference multiple sources, with deltas, maturity, gaps, recommendations, code examples, and a unified composite flow diagram
+
 ## packages/design/.claude-plugin/
 - `plugin.json` — plugin manifest for the design branding and UI/UX package
 
 ## packages/design/skills/brand-guidelines/
 - `SKILL.md` — skill: apply personal brand system to websites, decks, PDFs, and artifacts
 
-## packages/docgen/.claude-plugin/
-- `plugin.json` — plugin manifest for the documentation generation package
+## packages/dev/.claude-plugin/
+- `plugin.json` — plugin manifest for the dev tools package (build, deploy, docgen, experiment); points `commands` at `./docgen/commands` and `skills` at `./docgen/skills` + `./build/skills`
 
-## packages/docgen/commands/
+## packages/dev/build/skills/explain/
+- `SKILL.md` — skill: explain a repository's architecture, structure, lifecycle phases, design patterns, and conventions in detail, with Mermaid diagrams, pseudocode, and code excerpts
+
+## packages/dev/build/skills/refactor/
+- `SKILL.md` — skill: refactor code or documentation from various input sources (snippet/file/repo, doc pages/site/clipboard); handles version upgrades, framework migrations, language ports, and design-pattern refactors
+
+## packages/dev/docgen/commands/
 - `write-index.md` — slash command to generate a structured INDEX.md for the repo
 
-## packages/docgen/skills/write-agent/
+## packages/dev/docgen/skills/write-agent/
 - `SKILL.md` — skill: update and regenerate README.md, AGENTS.md, and CLAUDE.md
 
-## packages/docgen/skills/write-docstring/
+## packages/dev/docgen/skills/write-docstring/
 - `SKILL.md` — skill: guided workflow for writing docstrings for functions and classes
 
 ## packages/finance/.claude-plugin/

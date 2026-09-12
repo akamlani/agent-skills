@@ -146,6 +146,10 @@ install_plugin_local:
 		claude plugin install $$plugin@$(LOCAL_MARKETPLACE) --scope project; \
 	done
 
+validate_plugin_local:
+	@echo "Validating Local Claude Plugins..."
+	@claude plugin validate ./packages
+
 #################### General
 .PHONY: clean
 clean:

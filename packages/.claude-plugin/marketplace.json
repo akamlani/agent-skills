@@ -22,10 +22,10 @@
       "category":    "design"
     },
     {
-      "name":        "docgen",
-      "description": "Documentation generation and management tools.",
-      "source":      "./docgen",
-      "category":    "documentation"
+      "name":        "dev",
+      "description": "Development tools, utilities, and management tools.",
+      "source":      "./dev",
+      "category":    "development"
     },
     {
       "name":        "research",
