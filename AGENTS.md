@@ -35,6 +35,8 @@ All skills ship as `packages/` plugins, not under `toolkit/ai/skills/` (which cu
 | `dev/docgen` | `write-agent` | Update/synchronize README.md, AGENTS.md, CLAUDE.md, GEMINI.md |
 | `dev/docgen` | `write-docstring` | Guided workflow for writing docstrings for functions, classes, and modules |
 | `finance` | `write-invoice` | Generate a client invoice (XLSX template → PDF) |
+| `product/workflows` | `identify` | Brainstorm 8-10 current-state team workflows as AI automation/redesign candidates, tied to a business priority and north star metric |
+| `product/workflows` | `prioritize` | Score candidate workflows High/Medium/Low on the 3V framework (Value, Viability, Velocity) and flag assumptions to validate |
 | `research` | `futurism` | Explore future trends, drivers, and signals in emerging technologies |
 
 ## Commands

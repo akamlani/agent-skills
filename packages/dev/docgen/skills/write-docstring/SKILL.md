@@ -7,7 +7,7 @@ description: "Guide users through a structured workflow for writing clear and ef
 This skill adds docstrings to every public class, method, and function in a Python package (and all its subpackages), updating existing docstrings where they are incomplete or malformed.  It shall also update examples, tests, and applications.
 
 ## Workflow
-Use `AskUserQuestions` tool to clarify any information needed from the User.
+Use `AskUserQuestion` tool to clarify any information needed from the User.
 
 1. Identify Docstring Style Format: Use `google` by default
 2. Locate the Package based on `pyproject.toml` file

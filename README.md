@@ -65,7 +65,10 @@ agent-skills/
 │   │   ├── .claude-plugin/plugin.json
 │   │   └── skills/write-invoice/
 │   ├── product/
-│   │   └── commands/prompt-gen.md
+│   │   ├── .claude-plugin/plugin.json
+│   │   ├── commands/prompt-gen.md
+│   │   └── workflows/
+│   │       └── skills/{identify,prioritize}/
 │   └── research/
 │       ├── .claude-plugin/plugin.json
 │       └── skills/futurism/

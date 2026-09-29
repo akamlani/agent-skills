@@ -3,7 +3,7 @@ command: search
 ---
 # Search Command
 Interactive search through codebase or documents with sensible defaults.
-Use the `AskUserQuestions` tool to improve on ambiguity when not known.
+Use the `AskUserQuestion` tool to improve on ambiguity when not known.
 
 ## Workflow
 The following is a suggestive workflow:

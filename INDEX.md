@@ -69,8 +69,17 @@
 - `SKILL.md` — skill: generate a client invoice as XLSX then convert to PDF
 - `references/{name}_{client}_{date}.xlsx` — invoice XLSX template with placeholder fields
 
+## packages/product/.claude-plugin/
+- `plugin.json` — plugin manifest for the product tools package
+
 ## packages/product/commands/
 - `prompt-gen.md` — slash command for meta-prompting: generate structured AI prompts interactively
+
+## packages/product/workflows/skills/identify/
+- `SKILL.md` — skill: brainstorm 8-10 current-state team workflows as AI candidates in a 7-column table
+
+## packages/product/workflows/skills/prioritize/
+- `SKILL.md` — skill: score candidate workflows High/Medium/Low on 3V (Value, Viability, Velocity)
 
 ## packages/research/.claude-plugin/
 - `plugin.json` — plugin manifest for the research tools package
