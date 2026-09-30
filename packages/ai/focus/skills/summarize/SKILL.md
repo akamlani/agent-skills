@@ -6,7 +6,7 @@ description: "Summarizes and Synthesizes Content based on the user intent and in
 # Summarize or Synthesize Content
 Auto Summarization and Synthesis of Content, Documents, Chapters, Sections, etc.
 Auto Synthesize across multiple contexts with sensible defaults.
-Use the `AskUserQuestions` Tool to Clarify and improve on ambiguity for any information needed from the User.
+Ask the user to clarify any ambiguity or missing information.
 
 ## Workflow
 1.  Echo Back identified User Intent and Input Arguements

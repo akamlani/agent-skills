@@ -6,11 +6,11 @@ description: "Refactor code or documentation from a variety of input sources —
 Refactor code or documentation, gathered from whatever source the user provides, into a target shape while preserving behavior and intent.
 
 ## Workflow
-1. **Resolve target type** — code or documentation. Ask via `AskUserQuestions` if not stated or not obvious from context.
-2. **Resolve input source** — see Input Sources below; ask via `AskUserQuestions` when the user hasn't specified one.
+1. **Resolve target type** — code or documentation. Ask the user if not stated or not obvious from context.
+2. **Resolve input source** — see Input Sources below; ask the user when they haven't specified one.
 3. **Gather content** — read local files, fetch/crawl remote URLs, or accept pasted/clipboard content directly (see Input Sources for how each is handled).
-4. **Resolve the refactor operation** — see Code Operations / Documentation Operations below; ask via `AskUserQuestions` for the specific target (version, framework, language, or pattern) when not fully specified.
-5. **Choose delivery mode** — ask via `AskUserQuestions` whether to apply changes directly to files, or produce a preview/diff first for review before applying.
+4. **Resolve the refactor operation** — see Code Operations / Documentation Operations below; ask the user for the specific target (version, framework, language, or pattern) when not fully specified.
+5. **Choose delivery mode** — ask the user whether to apply changes directly to files, or produce a preview/diff first for review before applying.
 6. **Execute** — perform the refactor per Guidelines: preserve external behavior/interfaces unless the operation explicitly changes them, stay scoped to what was asked, don't bundle unrelated cleanup.
 7. **Verify** — for code, run any available tests/build/typecheck and confirm no regressions beyond what the refactor intends; for documentation, confirm links/formatting/structure still render correctly.
 8. **Deliver** — summarize what changed (files touched, and why), and call out anything noticed but intentionally left unchanged (out of scope).

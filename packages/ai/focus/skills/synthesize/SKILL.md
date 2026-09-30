@@ -6,8 +6,8 @@ description: "Synthesize and aggregate information across multiple sources — d
 Aggregate and cross-reference multiple sources into one coherent analysis — shared best practices, real divergences, and (where applicable) maturity, gaps, and outstanding recommendations.
 
 ## Workflow
-1. **Resolve sources** — list and confirm what's actually in scope (documents, URLs, pasted content); ask via `AskUserQuestions` if the user's request is ambiguous about which sources to include.
-2. **Choose output mode** — use `AskUserQuestions` to ask whether the synthesis should be conversational or written to a report file.
+1. **Resolve sources** — list and confirm what's actually in scope (documents, URLs, pasted content); ask the user if the request is ambiguous about which sources to include.
+2. **Choose output mode** — ask the user whether the synthesis should be conversational or written to a report file.
 3. **Gather content per source** — read documents directly; for a hosted URL, follow every in-scope sub-page, expander, and hyperlink rather than stopping at the top-level page (the same deep-crawl approach the `explain` skill's Deep-Research Guidelines already establish — reused here, not restated); for pasted/clipboard content, use what's already in the conversation.
 4. **Build a per-source topic index** — before comparing anything, note what each source actually covers, so later comparisons are only made where sources genuinely overlap.
 5. **Synthesize** — organize findings into the report structure below.

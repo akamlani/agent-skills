@@ -7,7 +7,7 @@ description: Generates a document invoice for a client - (1) Uses XLSX template 
 Auto Generates Invoice for a client in XLSX format and converts to PDF format.  Both formats are exported and saved.
 
 ## Workflow Instructions
-Use the `AskUserQuestions` tool to gather or confirm information for the invoice generation when uncertain.
+Ask the user to gather or confirm information for the invoice generation when uncertain.
 1. Active Project Name
 2. Name: Reference the Bio file
 3. Client Name and Address: Reference the Client file

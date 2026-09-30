@@ -39,6 +39,8 @@ All skills ship as `packages/` plugins, not under `toolkit/ai/skills/` (which cu
 | `product/workflows` | `prioritize` | Score candidate workflows High/Medium/Low on the 3V framework (Value, Viability, Velocity) and flag assumptions to validate |
 | `research` | `futurism` | Explore future trends, drivers, and signals in emerging technologies |
 
+Keep skills harness-neutral — describe *what* to ask the user; don't name harness-specific tools (e.g. `AskUserQuestion`).
+
 ## Commands
 | Package | Command | Description |
 |---------|---------|-------------|

@@ -7,7 +7,7 @@ description: 'Author and render Markdown-based slide decks/presentations using M
 This skill authors presentation decks as a single Markdown file using Marp conventions (front-matter directives, `---` slide dividers, local directives via HTML comments) and renders them to a final output format using `@marp-team/marp-cli` via `npx` — no persistent dependency install required.
 
 ## Input
-Use the `AskUserQuestions` tool to clarify any information needed from the user before authoring:
+Ask the user to clarify any information needed before authoring:
 - **Topic / Audience**: What is the deck about, and who is the audience (internal team, conference, client pitch, etc.)?
 - **Slide Count**:       Approximate number of slides / desired length (e.g. lightning talk vs. full deck)
 - **Output Format**:     HTML, PDF, PPTX, or PNG/JPEG image(s) — default to PDF if unspecified
@@ -16,7 +16,7 @@ Use the `AskUserQuestions` tool to clarify any information needed from the user 
 - **Speaker Notes**:     Should speaker notes be included as HTML comments per slide?
 
 ## Workflow Instructions
-1. Confirm inputs above via `AskUserQuestions` when uncertain.
+1. Confirm the inputs above with the user when uncertain.
 2. Draft the deck as a single Markdown file:
    - Front-matter block at top (`marp: true`, `theme:`, `paginate:`, `size:`, `backgroundColor:`, `color:`, `class:` as applicable).
    - One slide per section, sections separated by `---` on its own line.

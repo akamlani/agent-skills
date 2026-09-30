@@ -7,7 +7,7 @@ Produce a detailed, accurate explanation of a repository's architecture, structu
 
 ## Workflow
 1. **Resolve scope** — default to the whole repository; if the user names a specific package or directory, scope the explanation to it.
-2. **Choose output mode** — use the `AskUserQuestions` tool to ask whether the explanation should be conversational (answered directly in the conversation) or written to a report file.
+2. **Choose output mode** — ask the user whether the explanation should be conversational (answered directly in the conversation) or written to a report file.
 3. **Survey the repository or page** — read `README.md`, `AGENTS.md`, and `INDEX.md` when present for structural context; walk the source/package directories; identify entry points, key modules, dependencies, and conventions. For a documentation page (or pages), always research and extract content from every sub-section, expander/collapsible section, hyperlink, and resources/references link on the page too — never stop at the top-level visible text (see Deep-Research Guidelines below).
 4. **Synthesize** — organize findings into the report structure below.
 5. **Diagram** — build the diagrams called for below directly from what was found in step 3, using Mermaid syntax in fenced ` ```mermaid ` code blocks.

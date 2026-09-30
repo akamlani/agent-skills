@@ -10,7 +10,7 @@ Guides users through a structured workflow for researching and analyzing multipl
 - Reference @./stores/contextlib/glossary/futures.md for key relative definitions
 
 ## Workflow
-Use the `AskUserQuestions` tool to clarify the specific focus area, time horizon, and themes of interest for the futurism research. This will help tailor the research process and ensure relevant insights are gathered.
+Ask the user to clarify the specific focus area, time horizon, and themes of interest for the futurism research. This will help tailor the research process and ensure relevant insights are gathered.
 - Use the Futures Cone (e.g., the present, possible futures, plausible features, preferred future)
 - Categorize into different themes (e.g., AI, Robotics, Space Exploration, Biotechnology)
 - Categorize into different time horizons (e.g., near-term, mid-term, long-term)

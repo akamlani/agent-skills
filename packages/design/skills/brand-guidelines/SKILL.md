@@ -9,7 +9,7 @@ This skill defines a cohesive brand system for the author/bio. The aesthetic may
 
 
 ## Input
-Use `AskUserQuestions` tool to clarify any information needed from the User.
+Ask the user to clarify any information needed.
 - **Reference Site**:    Reference website or style they desire to emulate
 - **Content Type**:      Website, PPT Deck, PDF, Word Doc, etc.
 - **Brand Personality**: 3-5 adjectives describing the brand vibe (e.g., "bold, modern, professional")

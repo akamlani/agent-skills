@@ -7,7 +7,7 @@ argument-hint: [task] [context]
 I want to use AI to help with: $ARGUMENTS
 
 If no task was given, ask for one before continuing.
-Use the `AskUserQuestion` tool to gather additional information from the user.
+Ask the user for any additional information needed.
 
 ## Workflow
 1. Gather the task and initial context

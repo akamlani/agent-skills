@@ -20,7 +20,7 @@ Collect these four from the user. They are often given as unfilled template plac
 3. **North star metric** the team is trying to move
 4. **What the team does day to day** — 2-3 sentences
 
-If any are missing, ask for them together in one message (use AskUserQuestion when available) rather than one at a time. If the user cannot supply the priority or metric, proceed with the team and day-to-day description and mark those assumptions explicitly in the output.
+If any are missing, ask for them together in one message, ideally as a short numbered list, rather than one at a time. If the user cannot supply the priority or metric, proceed with the team and day-to-day description and mark those assumptions explicitly in the output.
 
 ## Generating the candidates
 
